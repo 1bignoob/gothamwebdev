@@ -34,6 +34,27 @@
   color: var(--gold);
 }
 
+.hero-title-lead {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.42rem;
+  margin-bottom: 0.38rem;
+}
+
+.hero-title-lead::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(214, 184, 122, 0.96) 0%, rgba(214, 184, 122, 0.45) 100%);
+}
+
+.hero-title-tail {
+  display: block;
+}
+
 .hero p {
   font-family: var(--font-ui);
   font-weight: 500;
