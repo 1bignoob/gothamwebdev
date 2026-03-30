@@ -34,7 +34,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("blogPosts", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("src/blog/posts/*.md")
-      .filter((item) => !item.data.draft)
+      .filter((item) => item.data.status === "published")
       .sort((a, b) => b.date - a.date);
   });
 

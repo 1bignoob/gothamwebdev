@@ -6,6 +6,7 @@ author: Gotham Web Dev
 tags:
   - performance
   - core web vitals
+status: published
 ---
 Not all speed tasks carry the same business impact. Focus first on what improves real user experience and conversion flow.
 

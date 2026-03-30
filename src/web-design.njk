@@ -14,4 +14,7 @@ breadcrumbs:
     href: services.html
   - label: Web Design
 ---
-<main><section class="page-hero"><div class="container"><h1>Web Design</h1><p>Strategic website design that builds trust fast and guides visitors toward the right action.</p></div></section></main>
+<main>
+  {% set heroTitle = "Web Design" %}
+  {% set heroSubtitle = "Strategic website design that builds trust fast and guides visitors toward the right action." %}
+  {% include "partials/page-hero.njk" %}</main>

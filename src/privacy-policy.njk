@@ -11,4 +11,7 @@ breadcrumbs:
     href: index.html
   - label: Privacy Policy
 ---
-<main><section class="page-hero"><div class="container"><h1>Privacy Policy</h1><p>This template policy should be reviewed and finalized with your legal advisor before publishing.</p></div></section></main>
+<main>
+  {% set heroTitle = "Privacy Policy" %}
+  {% set heroSubtitle = "This template policy should be reviewed and finalized with your legal advisor before publishing." %}
+  {% include "partials/page-hero.njk" %}</main>

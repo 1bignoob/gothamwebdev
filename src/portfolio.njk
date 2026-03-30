@@ -12,6 +12,9 @@ breadcrumbs:
   - label: Portfolio
 ---
 <main>
-  <section class="page-hero"><div class="container"><h1>Portfolio</h1><p>Case studies and sample project outcomes will be published here.</p></div></section>
+  
+  {% set heroTitle = "Portfolio" %}
+  {% set heroSubtitle = "Case studies and sample project outcomes will be published here." %}
+  {% include "partials/page-hero.njk" %}
   <section><div class="container cards-grid"><article class="card"><h2>Law Firm Lead Funnel</h2><p>Conversion-focused service pages and intake flow architecture.</p></article><article class="card"><h2>Local SEO Overhaul</h2><p>Technical cleanup and location-targeted pages for organic growth.</p></article><article class="card"><h2>Hosting Optimization</h2><p>Infrastructure migration with improved speed and uptime metrics.</p></article></div></section>
 </main>

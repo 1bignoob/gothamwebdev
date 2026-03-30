@@ -6,6 +6,7 @@ author: Gotham Web Dev
 tags:
   - local seo
   - service pages
+status: published
 ---
 Good local SEO pages start with intent clarity, not keyword stuffing. If your service page tries to target too many different audiences, rankings and conversions both suffer.
 

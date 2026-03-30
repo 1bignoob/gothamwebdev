@@ -252,3 +252,14 @@ Only split CSS or JS when you determine splitting will meaningfully improve load
 - No keyword stuffing or hidden content tricks
 - No bloated solutions for simple pages
 - Flag any SEO, Lighthouse, or accessibility tradeoff briefly when it arises
+
+---
+
+## ELEVENTY ARCHETYPE PROFILE (SIMILAR BUILDS ONLY)
+- Apply only when user asks for a similar Eleventy architecture.
+- Use status: draft|published for blog posts (no draft boolean toggling).
+- Keep npm run new-post minimal prompt flow and publish-at-creation.
+- Keep npm run publish-post to promote drafts without manual front matter edits.
+- Keep dynamic sitemap generation for published content.
+- Keep src/_data/business.json as centralized business/contact/social content.
+- Keep SITE_BASE + pathPrefix support for / and /gothamwebdev/.

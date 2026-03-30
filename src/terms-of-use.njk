@@ -11,4 +11,7 @@ breadcrumbs:
     href: index.html
   - label: Terms of Use
 ---
-<main><section class="page-hero"><div class="container"><h1>Terms of Use</h1><p>This template should be reviewed and finalized with legal counsel prior to launch.</p></div></section></main>
+<main>
+  {% set heroTitle = "Terms of Use" %}
+  {% set heroSubtitle = "This template should be reviewed and finalized with legal counsel prior to launch." %}
+  {% include "partials/page-hero.njk" %}</main>

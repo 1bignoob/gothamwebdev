@@ -12,6 +12,9 @@ breadcrumbs:
   - label: About
 ---
 <main>
-  <section class="page-hero"><div class="container"><h1>About Gotham Web Dev</h1><p>We build high-performing websites and search strategies for businesses that need measurable growth, not generic design.</p></div></section>
+  
+  {% set heroTitle = "About Gotham Web Dev" %}
+  {% set heroSubtitle = "We build high-performing websites and search strategies for businesses that need measurable growth, not generic design." %}
+  {% include "partials/page-hero.njk" %}
   <section><div class="container cards-grid"><article class="card"><h2>What We Do</h2><p>Web development, technical SEO, managed hosting, and AI-enabled workflow improvements.</p></article><article class="card"><h2>Who We Help</h2><p>Law firms, local businesses, service providers, and organizations that need quality leads.</p></article><article class="card"><h2>How We Work</h2><p>Clear scope, practical timelines, and performance-focused execution with ongoing support options.</p></article></div></section>
 </main>

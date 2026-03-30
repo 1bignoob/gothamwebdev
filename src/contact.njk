@@ -12,9 +12,31 @@ breadcrumbs:
   - label: Contact
 ---
 <main>
-  <section class="page-hero"><div class="container"><h1>Get in Touch</h1><p>Tell us what you need and we will follow up with a practical scope and timeline.</p></div></section>
-  <section>
+  <section class="page-hero">
     <div class="container">
+      <h1>Get in Touch</h1>
+      <p>Tell us what you need and we will follow up with a practical scope and timeline.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container cards-grid">
+      <article class="card">
+        <h2>Direct Contact</h2>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:{{ business.contact.email }}" title="Email Gotham Web Dev">{{ business.contact.email }}</a>
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <a href="tel:+1{{ business.contact.phone }}" title="Call Gotham Web Dev">{{ business.contact.phoneDisplay | default(business.contact.phone) }}</a>
+        </p>
+        <p>
+          <strong>Address:</strong><br />
+          {{ business.address.street }}<br />
+          {{ business.address.city }}, {{ business.address.state }} {{ business.address.zip }}
+        </p>
+      </article>
+
       <form class="card" action="#" method="post" aria-label="Contact form">
         <p><label for="name">Full Name</label><br /><input id="name" name="name" type="text" required /></p>
         <p><label for="email">Email</label><br /><input id="email" name="email" type="email" required /></p>

@@ -12,7 +12,10 @@ breadcrumbs:
   - label: FAQ
 ---
 <main>
-  <section class="page-hero"><div class="container"><h1>Frequently Asked Questions</h1><p>Everything you need to know before starting your project.</p></div></section>
+  
+  {% set heroTitle = "Frequently Asked Questions" %}
+  {% set heroSubtitle = "Everything you need to know before starting your project." %}
+  {% include "partials/page-hero.njk" %}
   <section>
     <div class="container cards-grid">
       <article class="card"><h2>How long does a website project take?</h2><p>Most projects are delivered in 4-8 weeks depending on scope and content readiness.</p></article>

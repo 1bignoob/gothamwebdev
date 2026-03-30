@@ -11,4 +11,7 @@ breadcrumbs:
     href: index.html
   - label: Disclaimer
 ---
-<main><section class="page-hero"><div class="container"><h1>Disclaimer</h1><p>This website content is provided for general information and should not be considered legal, financial, or professional advice.</p></div></section></main>
+<main>
+  {% set heroTitle = "Disclaimer" %}
+  {% set heroSubtitle = "This website content is provided for general information and should not be considered legal, financial, or professional advice." %}
+  {% include "partials/page-hero.njk" %}</main>

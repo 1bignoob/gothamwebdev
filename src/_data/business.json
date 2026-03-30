@@ -1,0 +1,21 @@
+{
+  "address": {
+    "street": "2800 Coyle Street",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip": "11235",
+    "country": "US"
+  },
+  "contact": {
+    "email": "info@gothamwebdev.com",
+    "phone": "6464812346",
+    "phoneDisplay": "(646) 481-2346"
+  },
+  "social": {
+    "github": "https://github.com/1bignoob",
+    "linkedin": "",
+    "twitter": "",
+    "instagram": "",
+    "facebook": ""
+  }
+}
