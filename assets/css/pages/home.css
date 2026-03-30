@@ -3,13 +3,30 @@
   min-height: 64vh;
   display: grid;
   align-items: center;
+  background: url("../../img/hero-skyline-1536.webp") center 28% / cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(90deg, rgba(7, 10, 16, 0.5) 0%, rgba(7, 10, 16, 0.25) 45%, rgba(7, 10, 16, 0.4) 100%),
-    url("../../img/hero-skyline-1536.webp") center 28% / cover no-repeat;
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.04), transparent 50%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    rgba(0, 0, 0, 0.65);
 }
 
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   padding: 6.5rem 0;
 }
 
@@ -67,9 +84,9 @@ body.nav-open .hero-cta {
 
 .feature-tile {
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(212, 175, 55, 0.28);
   overflow: hidden;
-  background: #0f141d;
+  background: #121212;
 }
 
 .feature-tile img {
