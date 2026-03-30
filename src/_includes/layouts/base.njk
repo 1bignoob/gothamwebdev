@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{{ title }}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ description }}" />
+    <meta name="author" content="Gotham Web Dev" />
+    <meta name="publisher" content="Gotham Web Dev" />
+    <meta name="robots" content="{{ robots | default('index, follow') }}" />
+    <link rel="canonical" href="{{ canonical }}" />
+    <meta name="theme-color" content="#090d14" />
+    {% if keywords %}<meta name="keywords" content="{{ keywords }}" />{% endif %}
+
+    {% if ogTitle %}<meta property="og:site_name" content="Gotham Web Dev" />{% endif %}
+    {% if ogType %}<meta property="og:type" content="{{ ogType }}" />{% endif %}
+    {% if ogTitle %}<meta property="og:title" content="{{ ogTitle }}" />{% endif %}
+    {% if ogDescription %}<meta property="og:description" content="{{ ogDescription }}" />{% endif %}
+    {% if ogUrl %}<meta property="og:url" content="{{ ogUrl }}" />{% endif %}
+    {% if ogImage %}<meta property="og:image" content="{{ ogImage }}" />{% endif %}
+    {% if ogImageAlt %}<meta property="og:image:alt" content="{{ ogImageAlt }}" />{% endif %}
+
+    {% if twitterCard %}<meta name="twitter:card" content="{{ twitterCard }}" />{% endif %}
+    {% if twitterTitle %}<meta name="twitter:title" content="{{ twitterTitle }}" />{% endif %}
+    {% if twitterDescription %}<meta name="twitter:description" content="{{ twitterDescription }}" />{% endif %}
+    {% if twitterImage %}<meta name="twitter:image" content="{{ twitterImage }}" />{% endif %}
+
+    {% if structuredData %}
+    <script type="application/ld+json">
+{{ structuredData | safe }}
+    </script>
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ navRoot }}assets/css/main.css" />
+    {% if pageCss %}<link rel="stylesheet" href="{{ navRoot }}{{ pageCss }}" />{% endif %}
+    <script src="{{ navRoot }}assets/js/main.js" defer></script>
+  </head>
+  <body>
+    {% include "partials/navbar.njk" %}
+    {% include "partials/breadcrumb.njk" %}
+    {{ content | safe }}
+    {% include "partials/footer.njk" %}
+  </body>
+</html>

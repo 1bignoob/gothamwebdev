@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      {% if description %}<p>{{ description }}</p>{% endif %}
+      <p class="section-subtitle">Published {{ page.date | blogDate }}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <article class="card">
+        {{ content | safe }}
+      </article>
+    </div>
+  </section>
+</main>

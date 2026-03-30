@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Gotham Web Dev brand mark</title>
+  <desc id="desc">Round gold icon with an abstract Manhattan skyline and upward framing lines.</desc>
+  <defs>
+    <linearGradient id="ring" x1="12" y1="12" x2="84" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7d487" />
+      <stop offset="0.5" stop-color="#d5ae63" />
+      <stop offset="1" stop-color="#8f6830" />
+    </linearGradient>
+    <linearGradient id="fill" x1="20" y1="16" x2="74" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f4cf80" />
+      <stop offset="0.55" stop-color="#c99a4c" />
+      <stop offset="1" stop-color="#7d5826" />
+    </linearGradient>
+  </defs>
+  <circle cx="48" cy="48" r="44" fill="#0c111b" stroke="url(#ring)" stroke-width="3" />
+  <circle cx="48" cy="48" r="37.5" fill="none" stroke="#f4cf80" stroke-opacity="0.22" stroke-width="1.5" />
+  <path fill="url(#fill)" d="M25 67V36.5l10.5-6.5v37H25Zm14 0V25.5l9-5.5V67h-9Zm12 0V31l10 6v30H51Zm13 0V40.5L72 45v22H64Z"/>
+  <path d="M18 71h60" stroke="url(#ring)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M24 28.5 48 14l24 14.5" fill="none" stroke="url(#ring)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M31 23.5v-7M48 13v-8M65 23.5v-7" fill="none" stroke="#f7d487" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
