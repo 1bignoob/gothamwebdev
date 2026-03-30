@@ -13,6 +13,20 @@ Every website is for real-world deployment. Build to professional standards.
 
 ---
 
+## BEST PRACTICE GUARD
+
+Before executing any instruction that conflicts with best practices, **stop and ask the user first**. Do not silently proceed. This includes but is not limited to:
+
+- **SEO**: duplicate titles/descriptions, missing canonical, non-descriptive slugs, keyword stuffing, h1 misuse, missing meta description, deindexing pages unintentionally
+- **Accessibility (WCAG 2.2 AA)**: missing alt text, unlabeled form fields, poor color contrast, removing focus states, non-semantic markup, skipping heading levels
+- **Performance**: adding render-blocking resources, large unoptimized images, heavy JS on load, unnecessary layout shifts, splitting CSS/JS without justification
+- **Naming / file conventions**: misspelled page or file names, inconsistent slug formats, vague or ambiguous naming that would be hard to reverse
+- **General best practices**: removing gitignore entries, bypassing git safety flags, hardcoding values that should be configurable, undoing previously agreed architecture decisions
+
+When flagging a concern, briefly explain the issue and ask the user to confirm or suggest an alternative before proceeding.
+
+---
+
 ## PROJECT REFERENCE
 **Arden Law Firm** is a completed reference project for this workspace. Use it as a baseline for HTML structure, head tag conventions, SEO/metadata patterns, CSS architecture, and accessibility implementation.
 
@@ -199,9 +213,12 @@ Only split CSS or JS when you determine splitting will meaningfully improve load
 
 ## PLAYWRIGHT EXECUTION DEFAULTS
 - For every project, ensure Playwright is installed before first run (`@playwright/test` and required browsers)
+- If `.gitignore` exists, add Playwright-generated files and folders to it immediately after Playwright install or execution (`playwright-artifacts/`, `playwright-report/`, `test-results/`, and similar generated output paths)
 - Before each Playwright run, verify Playwright dependencies exist; install if missing
 - Run Playwright in headed mode by default (`headless: false`) unless explicitly told to run headless
 - Save screenshots and visual outputs into a clearly named folder based on page/feature (for example: `playwright-artifacts/homepage-hero/`)
+- For smoke runs, replace screenshots on every run: delete old smoke screenshots first, then save fresh files with the same names
+- Smoke screenshot replacement default: `rm -f playwright-artifacts/smoke/*.png` before test execution
 - Always include responsive test coverage from mobile through tablet viewports on each run
 - Minimum viewport set per run: 390x844 (mobile), 768x1024 (tablet portrait), 1024x768 (tablet landscape); optional desktop 1440x900
 - Name artifacts with viewport and scenario context (for example: `contact-form-mobile.png`, `menu-tablet-portrait.png`)
@@ -212,9 +229,10 @@ Only split CSS or JS when you determine splitting will meaningfully improve load
 ## DEFAULT TEST RUN COMMAND
 - When the user asks for testing, run Playwright automatically using this order:
 1. If dependencies are missing: `npm install -D @playwright/test && npx playwright install`
-2. Run default suite in headed mode: `npx playwright test --headed`
-3. If a specific file or grep target is requested, run headed with that target only
-4. Save screenshots and traces under a clearly named `playwright-artifacts/<feature-or-page>/` folder
+2. For smoke runs with persistent screenshots: `rm -f playwright-artifacts/smoke/*.png`
+3. Run default suite in headed mode: `npx playwright test --headed`
+4. If a specific file or grep target is requested, run headed with that target only
+5. Save screenshots and traces under a clearly named `playwright-artifacts/<feature-or-page>/` folder
 - Use package manager equivalents when needed: `pnpm exec playwright test --headed` or `yarn playwright test --headed`
 - If project scripts exist, prefer them only when they preserve headed mode and artifact naming rules
 
