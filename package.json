@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e": "playwright test --headed",
+    "test:smoke:refresh": "rm -f playwright-artifacts/smoke/*.png && playwright test tests/smoke.spec.js --headed",
     "dev": "eleventy --serve",
     "dev:gh-pages": "SITE_BASE=/gothamwebdev/ eleventy --serve",
     "build": "eleventy",
@@ -19,6 +21,7 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
+    "@11ty/eleventy": "^3.1.5",
+    "@playwright/test": "^1.58.2"
   }
 }

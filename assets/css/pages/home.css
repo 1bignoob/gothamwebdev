@@ -37,6 +37,17 @@
 
 .hero-cta {
   margin-top: 1.3rem;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.hero-cta .btn {
+  padding: 0.56rem 0.92rem;
+}
+
+body.nav-open .hero-cta {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .services-strip {

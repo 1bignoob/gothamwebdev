@@ -4,21 +4,23 @@
       <img class="brand-mark" src="{{ navRoot }}assets/img/gotham-mark-round.svg" width="34" height="34" alt="" aria-hidden="true" />
       <span class="brand-text">GOTHAM <span>WEB DEV</span></span>
     </a>
-    <nav class="site-nav" aria-label="Primary">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open site menu"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="{{ navRoot }}index.html" title="Home"{% if pageKey == "home" %} aria-current="page"{% endif %}>Home</a></li>
         <li><a href="{{ navRoot }}about.html" title="About Gotham Web Dev"{% if pageKey == "about" %} aria-current="page"{% endif %}>About</a></li>
         <li class="nav-dropdown{% if pageGroup == "services" %} is-current{% endif %}">
-          <button
-            class="nav-link nav-dropdown-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="services-submenu-{{ pageKey | default('page') }}"
-          >
-            Services
-          </button>
-          <ul id="services-submenu-{{ pageKey | default('page') }}" class="dropdown-menu" aria-label="Services submenu">
-            <li><a href="{{ navRoot }}services.html" title="View all services"{% if pageKey == "services" %} aria-current="page"{% endif %}>All Services</a></li>
+          <a class="nav-link" href="{{ navRoot }}services.html" title="View all services"{% if pageGroup == "services" %} aria-current="page"{% endif %}>Services</a>
+          <ul class="dropdown-menu" aria-label="Services submenu">
             <li><a href="{{ navRoot }}web-design.html" title="Custom website design services"{% if pageKey == "web-design" %} aria-current="page"{% endif %}>Web Design</a></li>
             <li><a href="{{ navRoot }}web-development.html" title="Custom website development services"{% if pageKey == "web-development" %} aria-current="page"{% endif %}>Web Development</a></li>
             <li><a href="{{ navRoot }}seo.html" title="SEO and lead generation services"{% if pageKey == "seo" %} aria-current="page"{% endif %}>SEO and Lead Generation</a></li>
@@ -27,8 +29,9 @@
           </ul>
         </li>
         <li><a href="{{ navRoot }}portfolio.html" title="View project portfolio"{% if pageKey == "portfolio" %} aria-current="page"{% endif %}>Portfolio</a></li>
+        <li><a href="{{ navRoot }}faq.html" title="Frequently asked questions"{% if pageKey == "faq" %} aria-current="page"{% endif %}>FAQ</a></li>
         <li><a href="{{ navRoot }}blog/" title="Read Gotham Web Dev blog"{% if pageKey == "blog" %} aria-current="page"{% endif %}>Blog</a></li>
-        <li><a class="btn" href="{{ navRoot }}contact.html" title="Get a free consultation">Get a Quote</a></li>
+        <li class="nav-quote-item"><a class="btn nav-quote-link" href="{{ navRoot }}contact.html" title="Get a free consultation">Get a Quote</a></li>
       </ul>
     </nav>
   </div>

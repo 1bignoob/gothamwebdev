@@ -7,3 +7,7 @@ temp-page/
 typescript
 .env
 .env.*
+playwright-artifacts/
+playwright-report/
+test-results/
+blob-report/
