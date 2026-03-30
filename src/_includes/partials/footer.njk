@@ -1,18 +1,10 @@
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p class="footer-copy">&copy; <span data-year>2026</span> Gotham Web Dev. All rights reserved.</p>
-    <p class="footer-copy">
-      <a href="mailto:{{ business.contact.email }}" title="Email Gotham Web Dev">{{ business.contact.email }}</a>
-      |
-      <a href="tel:+1{{ business.contact.phone }}" title="Call Gotham Web Dev">{{ business.contact.phoneDisplay | default(business.contact.phone) }}</a>
-      |
-      {{ business.address.street }}, {{ business.address.city }}, {{ business.address.state }} {{ business.address.zip }}
-    </p>
+    <p class="footer-copy">Gotham Web Dev. &copy; <span data-year>2026</span>. All rights reserved.</p>
     <nav class="footer-links" aria-label="Legal and utility links">
       <a href="{{ navRoot }}privacy-policy.html" title="Read Privacy Policy">Privacy Policy</a>
       <a href="{{ navRoot }}terms-of-use.html" title="Read Terms of Use">Terms of Use</a>
       <a href="{{ navRoot }}disclaimer.html" title="Read Disclaimer">Disclaimer</a>
-      <a href="{{ navRoot }}faq.html" title="Read Frequently Asked Questions">FAQ</a>
     </nav>
   </div>
 </footer>

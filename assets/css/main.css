@@ -598,7 +598,7 @@ main section {
   position: relative;
   padding: 0;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .site-footer::before {
@@ -613,37 +613,57 @@ main section {
 }
 
 .footer-inner {
-  min-height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 0.95rem 0;
+  gap: 1.1rem;
+  flex-wrap: nowrap;
+  padding: 0.55rem 0;
 }
 
 .footer-copy {
   margin: 0;
+  white-space: nowrap;
+  line-height: 1.35;
 }
 
 .footer-links {
   margin: 0;
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0;
+  flex-wrap: nowrap;
   align-items: center;
+}
+
+.footer-links a + a::before {
+  content: "\2022";
+  color: rgba(213, 174, 99, 0.78);
+  margin: 0 0.55rem;
 }
 
 .footer-links a {
   text-decoration: none;
   color: var(--muted);
   font-size: 0.88rem;
+  line-height: 1.35;
   transition: color 220ms ease;
 }
 
 .footer-links a:hover,
 .footer-links a:focus-visible {
   color: var(--gold-strong);
+}
+
+@media (min-width: 801px) {
+  .footer-inner {
+    padding: 1.25rem 0;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1120px) {
+  .footer-inner {
+    padding: 1.2rem 0 1.35rem;
+  }
 }
 
 @media (max-width: 1200px) and (min-width: 801px) {
@@ -908,10 +928,17 @@ main section {
   }
 
   .footer-inner {
-    min-height: 74px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.38rem;
+    padding: 0.62rem 0 0.7rem;
+  }
+
+  .footer-copy,
+  .footer-links {
+    text-align: center;
+    justify-content: center;
   }
 }
 
