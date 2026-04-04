@@ -11,6 +11,18 @@
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --gold: #d5ae63;
   --gold-strong: #f0c673;
+  --gold-metal: linear-gradient(
+    168deg,
+    #4f340f 0%,
+    #77521e 12%,
+    #b78636 24%,
+    #f3d68c 36%,
+    #fff6cf 48%,
+    #f7de98 54%,
+    #c8923e 68%,
+    #8a5e23 82%,
+    #5a3911 100%
+  );
   --border: #312816;
   --page-gutter: 1rem;
   --max: 1520px;
@@ -93,6 +105,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
+  isolation: isolate;
   background: rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -141,6 +154,7 @@ body.nav-open {
   letter-spacing: 0.02em;
   font-weight: 600;
   line-height: 1;
+  color: var(--text);
 }
 
 .brand-mark {
@@ -154,10 +168,40 @@ body.nav-open {
   display: inline-flex;
   align-items: baseline;
   gap: 0.35rem;
+  color: var(--text);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.brand span {
-  color: var(--gold);
+.brand-text > span {
+  color: var(--gold-strong);
+  background-image: var(--gold-metal);
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 246, 209, 0.28),
+    0 0 10px rgba(213, 174, 99, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+html.brand-shimmer-ready .brand-text > span {
+  animation: brand-gold-shimmer 7.5s ease-in-out infinite;
+}
+
+@keyframes brand-gold-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .site-nav {
@@ -507,7 +551,15 @@ main section {
 }
 
 .section-title .accent {
-  color: var(--gold);
+  color: var(--gold-strong);
+  background-image: var(--gold-metal);
+  background-size: 180% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 234, 182, 0.22),
+    0 0 14px rgba(190, 137, 57, 0.28);
 }
 
 .section-subtitle {
@@ -569,6 +621,20 @@ main section {
 .card h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+.card h2,
+.card h3,
+.feature-copy h3 {
+  color: var(--gold-strong);
+  background-image: var(--gold-metal);
+  background-size: 180% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 230, 171, 0.16),
+    0 0 14px rgba(190, 137, 57, 0.24);
 }
 
 .page-hero {
@@ -752,22 +818,25 @@ main section {
   }
 
   .site-nav {
-    position: fixed;
-    inset: 0;
-    z-index: 45;
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    z-index: 60;
     margin-left: 0;
     background: transparent;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: opacity 220ms ease, visibility 220ms ease;
-    display: flex;
     justify-content: stretch;
     align-items: flex-start;
-    padding-top: 4.6rem;
+    padding-top: 0;
   }
 
   .site-nav.is-open {
+    display: flex;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -776,7 +845,7 @@ main section {
   .nav-list {
     width: 100%;
     height: auto;
-    max-height: calc(100dvh - 4.6rem);
+    max-height: calc(100dvh - 74px);
     overflow: auto;
     margin: 0;
     padding: 0.74rem 1rem 1rem;
@@ -788,11 +857,17 @@ main section {
     flex-wrap: nowrap;
     align-items: stretch;
     gap: 0;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
     transform: translateY(-10px);
-    transition: transform 240ms ease;
+    transition: transform 240ms ease, opacity 220ms ease;
   }
 
   .site-nav.is-open .nav-list {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
     transform: translateY(0);
   }
 
@@ -843,13 +918,19 @@ main section {
     border-radius: 0;
     background: var(--texture-black), rgba(11, 11, 11, 0.82);
     padding: 0.22rem 0 0.08rem;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     overflow: visible;
     transform: none;
     transition: none;
     padding-left: 0.2rem;
+  }
+
+  .site-nav.is-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .dropdown-menu li:nth-child(1),
@@ -947,6 +1028,7 @@ main section {
   .nav-list .nav-link,
   .nav-list > li > a:not(.btn)::after,
   .nav-list > li > .nav-link::after,
+  .brand-text > span,
   .btn,
   .btn::after,
   .btn-outline,

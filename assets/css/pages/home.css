@@ -31,7 +31,15 @@
 }
 
 .hero h1 .accent {
-  color: var(--gold);
+  color: var(--gold-strong);
+  background-image: var(--gold-metal);
+  background-size: 180% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 234, 182, 0.22),
+    0 0 14px rgba(190, 137, 57, 0.28);
 }
 
 .hero-title-lead {

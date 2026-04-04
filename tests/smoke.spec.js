@@ -31,3 +31,24 @@ test("contact smoke", async ({ page }, testInfo) => {
   await expect(page.getByLabel(/full name/i)).toBeVisible();
   await page.screenshot({ path: artifactPath("contact", testInfo.project.name), fullPage: true });
 });
+
+test("mobile nav closes without ghost hit targets", async ({ page }, testInfo) => {
+  const viewport = testInfo.project.use.viewport;
+  test.skip(!viewport || viewport.width > 800, "Only relevant for mobile nav layout.");
+
+  await page.goto("/");
+
+  const menuToggle = page.getByRole("button", { name: /open site menu|close site menu/i });
+  await expect(menuToggle).toBeVisible();
+
+  await menuToggle.click();
+  await expect(page.locator(".site-nav.is-open").getByRole("link", { name: /web design/i })).toBeVisible();
+
+  await menuToggle.click();
+  await expect(page.locator(".site-nav")).not.toBeVisible();
+
+  const beforeUrl = page.url();
+  await page.mouse.click(60, 240);
+  await page.waitForTimeout(150);
+  await expect(page).toHaveURL(beforeUrl);
+});
